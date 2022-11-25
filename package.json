@@ -21,6 +21,7 @@
     "@babel/preset-typescript": "^7.15.0",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
+    "@webpack-cli/generators": "^3.0.0",
     "babel-loader": "^8.2.2",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
@@ -34,7 +35,8 @@
     "core-js": "^3.16.4",
     "grimoire-kolmafia": "^0.3.9",
     "kolmafia": "^5.26781.0",
-    "libram": "^0.7.4"
+    "libram": "^0.7.4",
+    "mafia-shared-relay": "^0.0.5"
   },
   "author": "Kasekopf",
   "license": "ISC",

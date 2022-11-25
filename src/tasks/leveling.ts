@@ -31,7 +31,7 @@ import {
 } from "libram";
 import { Quest } from "../engine/task";
 import { CombatStrategy } from "../engine/combat";
-import { args } from "../main";
+import { args } from "../args";
 
 function primestatId(): number {
   switch (myPrimestat()) {

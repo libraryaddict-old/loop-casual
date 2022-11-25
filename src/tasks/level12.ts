@@ -30,7 +30,7 @@ import {
 import { Quest, Task } from "../engine/task";
 import { CombatStrategy } from "../engine/combat";
 import { OutfitSpec, step } from "grimoire-kolmafia";
-import { args } from "../main";
+import { args } from "../args";
 import { debug } from "../lib";
 
 function ensureFluffers(flufferCount: number): void {

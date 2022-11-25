@@ -45,7 +45,7 @@ import {
   MenuItem,
   sumNumbers,
 } from "libram";
-import { args } from "../main";
+import { args } from "../args";
 import { Quest } from "../engine/task";
 
 export const DietQuest: Quest = {
