@@ -1,9 +1,9 @@
-import { print, write } from "kolmafia";
+import { write } from "kolmafia";
 import {
   ComponentSetting,
   generateHTML,
+  handledApiRequest,
   RelayComponent,
-  RelayComponentType,
   RelayPage,
 } from "mafia-shared-relay";
 import { args } from "./args";
@@ -29,21 +29,23 @@ function convertArgsToHtml(): RelayPage {
       if (data.setting === "" || data.hidden) continue;
 
       const setting: ComponentSetting = {
-        type: RelayComponentType.STRING,
+        type: "string",
         description: data.help || "No Description Provided",
         preference: `loopcasual_${key}`,
         default: data.default ? data.default.toString() : undefined,
       };
 
       if (typeof data.default === "boolean") {
-        setting.type = RelayComponentType.BOOLEAN;
+        setting.type = "boolean";
       } else if (data.options !== undefined) {
-        setting.type = RelayComponentType.DROPDOWN;
+        setting.type = "dropdown";
         setting.dropdown = data.options.map(([k, desc]) => {
           return { display: desc, value: k };
         });
       }
 
+      setting.validate = "(value) => value == 'true'";
+      setting.invalidReason = "Cos you smell";
       settings.push(setting);
     }
   }
@@ -52,5 +54,7 @@ function convertArgsToHtml(): RelayPage {
 }
 
 export function main() {
+  if (handledApiRequest()) return;
+
   write(generateHTML([convertArgsToHtml()]));
 }
